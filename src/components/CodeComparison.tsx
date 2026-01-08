@@ -8,7 +8,7 @@ interface CodeComparisonProps {
 
 export function CodeComparison({ react, swiftui }: CodeComparisonProps) {
   return (
-    <div className="mb-6 max-w-5xl mx-auto">
+    <div className="mb-6 max-w-[1440px] mx-auto">
       <div className="flex gap-4 items-stretch">
         <div className="flex-1 min-w-0">
           <CodeBlock code={react.code} language="tsx" title="React / JSX" />
