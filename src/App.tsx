@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, useParams, useNavigate, Link, useLocation } from "react-router-dom";
+import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import { lessons } from "./data/lessons";
 import { Sidebar } from "./components/Sidebar";
 import { LessonView } from "./components/LessonView";
@@ -40,9 +40,7 @@ function WelcomePage() {
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const location = useLocation();
 
-  // Close sidebar on route change (mobile)
   const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
