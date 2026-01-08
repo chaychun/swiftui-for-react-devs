@@ -1,15 +1,22 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import type { Lesson } from "../types";
 import { LessonCard } from "./LessonCard";
-import { categories } from "../data/lessons";
+import { getCategoriesForModule, getLessonsByModule } from "../data/lessons";
 
-interface SidebarProps {
-  lessons: Lesson[];
-}
+const MODULE_TABS = [
+  { id: "swift-basics", label: "Swift Basics" },
+  { id: "swiftui", label: "SwiftUI" },
+] as const;
 
-export function Sidebar({ lessons }: SidebarProps) {
+type ModuleId = (typeof MODULE_TABS)[number]["id"];
+
+export function Sidebar() {
   const location = useLocation();
   const activeLessonId = location.pathname.match(/^\/lessons\/([^/?]+)/)?.[1] ?? null;
+  const [activeModule, setActiveModule] = useState<ModuleId>("swift-basics");
+
+  const moduleLessons = getLessonsByModule(activeModule);
+  const moduleCategories = getCategoriesForModule(activeModule);
 
   return (
     <aside
@@ -27,23 +34,51 @@ export function Sidebar({ lessons }: SidebarProps) {
         <p className="text-xs text-text-secondary">Learn SwiftUI using concepts you already know</p>
       </Link>
 
-      <nav className="flex-1 p-4">
-        {categories.map((category) => (
-          <div key={category} className="mb-6">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-text-muted px-3 py-2">
-              {category}
-            </h2>
-            {lessons
-              .filter((lesson) => lesson.category === category)
-              .map((lesson) => (
-                <LessonCard
-                  key={lesson.id}
-                  lesson={lesson}
-                  isActive={activeLessonId === lesson.id}
-                />
-              ))}
-          </div>
+      <div className="flex border-b border-border" role="tablist" aria-label="Module selection">
+        {MODULE_TABS.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeModule === tab.id}
+            aria-controls={`${tab.id}-panel`}
+            onClick={() => setActiveModule(tab.id)}
+            className={`flex-1 py-3 px-4 text-xs font-medium transition-colors ${
+              activeModule === tab.id
+                ? "bg-bg-tertiary text-accent-warm border-b-2 border-accent-warm"
+                : "text-text-muted hover:text-text-secondary hover:bg-bg-tertiary/50"
+            }`}
+          >
+            {tab.label}
+          </button>
         ))}
+      </div>
+
+      <nav
+        className="flex-1 p-4"
+        id={`${activeModule}-panel`}
+        role="tabpanel"
+        aria-label={`${activeModule} lessons`}
+      >
+        {moduleCategories.length === 0 ? (
+          <p className="text-xs text-text-muted px-3 py-2 italic">No lessons yet</p>
+        ) : (
+          moduleCategories.map((category) => (
+            <div key={category} className="mb-6">
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-text-muted px-3 py-2">
+                {category}
+              </h2>
+              {moduleLessons
+                .filter((lesson) => lesson.category === category)
+                .map((lesson) => (
+                  <LessonCard
+                    key={lesson.id}
+                    lesson={lesson}
+                    isActive={activeLessonId === lesson.id}
+                  />
+                ))}
+            </div>
+          ))
+        )}
       </nav>
     </aside>
   );

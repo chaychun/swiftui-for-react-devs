@@ -1,5 +1,7 @@
 import type { Lesson } from "../types";
+import { isComparisonSection } from "../types";
 import { CodeComparison } from "./CodeComparison";
+import { CodeBlock } from "./CodeBlock";
 import { Lightbulb, ArrowLeft } from "lucide-react";
 
 interface LessonViewProps {
@@ -45,7 +47,22 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
               }}
             />
 
-            <CodeComparison react={section.react} swiftui={section.swiftui} />
+            {isComparisonSection(section) ? (
+              <CodeComparison
+                react={section.react}
+                swiftui={section.swiftui}
+                leftTitle={section.leftTitle}
+                rightTitle={section.rightTitle}
+              />
+            ) : (
+              <div className="mb-6 max-w-3xl mx-auto">
+                <CodeBlock
+                  code={section.code.code}
+                  language={section.language === "swift" ? "swift" : "tsx"}
+                  title={section.language === "swift" ? "Swift" : "TypeScript"}
+                />
+              </div>
+            )}
 
             {section.tips && section.tips.length > 0 && (
               <div

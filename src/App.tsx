@@ -39,7 +39,7 @@ function WelcomePage() {
 function App() {
   return (
     <div className="flex min-h-screen bg-bg-primary text-text-primary font-sans antialiased">
-      <Sidebar lessons={lessons} />
+      <Sidebar />
 
       <main className="flex-1 ml-70 min-h-screen">
         <Routes>

@@ -1,13 +1,16 @@
 import type { Lesson } from "../types";
+import { swiftBasicsLessons } from "./swift-basics";
 
-export const lessons: Lesson[] = [
+export const swiftuiLessons: Lesson[] = [
   {
     id: "basics",
     title: "Basic Components",
     description: "Learn how React components map to SwiftUI Views",
+    module: "swiftui",
     category: "Fundamentals",
     sections: [
       {
+        format: "comparison",
         title: "Functional Components → Structs",
         explanation: `In React, you create components as functions. In SwiftUI, you create **structs** that conform to the **View** protocol. The \`body\` property is like your return statement in React.`,
         react: {
@@ -40,6 +43,7 @@ export const lessons: Lesson[] = [
         ],
       },
       {
+        format: "comparison",
         title: "JSX Elements → View Modifiers",
         explanation: `In React, you style with CSS classes or inline styles. In SwiftUI, you use **view modifiers** - chainable methods that transform views.`,
         react: {
@@ -77,9 +81,11 @@ export const lessons: Lesson[] = [
     id: "state",
     title: "State Management",
     description: "useState, useEffect, and more → SwiftUI property wrappers",
+    module: "swiftui",
     category: "Fundamentals",
     sections: [
       {
+        format: "comparison",
         title: "useState → @State",
         explanation: `React's \`useState\` becomes SwiftUI's \`@State\` property wrapper. The key difference: SwiftUI automatically re-renders when @State changes - no setter function needed, just assign directly!`,
         react: {
@@ -123,6 +129,7 @@ export const lessons: Lesson[] = [
         ],
       },
       {
+        format: "comparison",
         title: "Props with Callbacks → @Binding",
         explanation: `When a child needs to modify parent state (like controlled inputs in React), use \`@Binding\`. It's like passing both the value AND the setter.`,
         react: {
@@ -168,6 +175,7 @@ struct TextInput: View {
         ],
       },
       {
+        format: "comparison",
         title: "useEffect → .onAppear / .onChange / .task",
         explanation: `SwiftUI doesn't have a direct useEffect equivalent. Instead, it has specific modifiers for different scenarios.`,
         react: {
@@ -230,9 +238,11 @@ struct TextInput: View {
     id: "layout",
     title: "Layout & Flexbox",
     description: "Flexbox concepts → SwiftUI Stacks",
+    module: "swiftui",
     category: "Layout",
     sections: [
       {
+        format: "comparison",
         title: "Flexbox → Stacks",
         explanation: `SwiftUI uses **HStack**, **VStack**, and **ZStack** instead of flexbox. They're simpler but less flexible - you choose the main axis upfront.`,
         react: {
@@ -283,6 +293,7 @@ ZStack(alignment: .bottom) {
         ],
       },
       {
+        format: "comparison",
         title: "justify-content & align-items → Stack Alignment",
         explanation: `Flexbox's justify-content and align-items become alignment parameters and Spacer views in SwiftUI.`,
         react: {
@@ -345,6 +356,7 @@ HStack(alignment: .bottom) {
         ],
       },
       {
+        format: "comparison",
         title: "Grid Layouts",
         explanation: `SwiftUI has LazyVGrid and LazyHGrid for grid layouts, similar to CSS Grid but with a different mental model.`,
         react: {
@@ -408,9 +420,11 @@ LazyVGrid(columns: adaptiveColumns, spacing: 16) {
     id: "lists",
     title: "Lists & Iteration",
     description: "map() and keys → ForEach and Identifiable",
+    module: "swiftui",
     category: "Data Display",
     sections: [
       {
+        format: "comparison",
         title: "Array.map() → ForEach",
         explanation: `React's pattern of mapping arrays to elements becomes SwiftUI's \`ForEach\`. The key prop becomes the \`Identifiable\` protocol or an explicit id parameter.`,
         react: {
@@ -463,6 +477,7 @@ ForEach(items, id: \\.self) { item in
         ],
       },
       {
+        format: "comparison",
         title: "Conditional Rendering",
         explanation: `SwiftUI supports if/else directly in view builders - no ternary operators or && needed!`,
         react: {
@@ -524,9 +539,11 @@ ForEach(items, id: \\.self) { item in
     id: "navigation",
     title: "Navigation & Routing",
     description: "React Router concepts → NavigationStack",
+    module: "swiftui",
     category: "Navigation",
     sections: [
       {
+        format: "comparison",
         title: "React Router → NavigationStack",
         explanation: `SwiftUI uses a stack-based navigation model. Instead of routes and URLs, you push/pop views onto a navigation stack.`,
         react: {
@@ -591,6 +608,7 @@ struct UserList: View {
         ],
       },
       {
+        format: "comparison",
         title: "Modals & Sheets",
         explanation: `React typically uses state + portal for modals. SwiftUI has built-in .sheet() and .fullScreenCover() modifiers.`,
         react: {
@@ -663,9 +681,11 @@ struct UserList: View {
     id: "forms",
     title: "Forms & Inputs",
     description: "Controlled components → Two-way binding",
+    module: "swiftui",
     category: "Forms",
     sections: [
       {
+        format: "comparison",
         title: "Controlled Inputs → TextField",
         explanation: `React's controlled component pattern with value + onChange becomes simple two-way binding with $variable in SwiftUI.`,
         react: {
@@ -734,6 +754,7 @@ struct UserList: View {
         ],
       },
       {
+        format: "comparison",
         title: "Select/Dropdown → Picker",
         explanation: `HTML select elements become SwiftUI Pickers. There are multiple styles available.`,
         react: {
@@ -807,9 +828,11 @@ struct UserList: View {
     id: "context",
     title: "Global State & Context",
     description: "Context API → Environment and ObservableObject",
+    module: "swiftui",
     category: "State",
     sections: [
       {
+        format: "comparison",
         title: "Context API → @Environment",
         explanation: `React's Context API becomes SwiftUI's Environment. System values like color scheme are automatically available.`,
         react: {
@@ -865,6 +888,7 @@ struct ContentView: View {
         ],
       },
       {
+        format: "comparison",
         title: "Global State → @Observable",
         explanation: `For app-wide state (like Redux or Zustand), SwiftUI uses @Observable classes. Views automatically update when observed properties change.`,
         react: {
@@ -944,9 +968,11 @@ struct CartButton: View {
     id: "animations",
     title: "Animations",
     description: "CSS transitions and Framer Motion → SwiftUI animations",
+    module: "swiftui",
     category: "UI",
     sections: [
       {
+        format: "comparison",
         title: "CSS Transitions → withAnimation",
         explanation: `SwiftUI animations are declarative. Wrap state changes in \`withAnimation\` and SwiftUI figures out what to animate.`,
         react: {
@@ -1012,6 +1038,7 @@ struct Box: View {
         ],
       },
       {
+        format: "comparison",
         title: "Enter/Exit Animations → transition",
         explanation: `For views appearing/disappearing (like Framer Motion's AnimatePresence), use the .transition() modifier.`,
         react: {
@@ -1087,9 +1114,11 @@ struct ContentView: View {
     id: "networking",
     title: "Data Fetching",
     description: "fetch/axios and React Query → URLSession and async/await",
+    module: "swiftui",
     category: "Data",
     sections: [
       {
+        format: "comparison",
         title: "fetch() → URLSession",
         explanation: `Swift has built-in async/await that works seamlessly with SwiftUI's .task modifier. No external libraries needed!`,
         react: {
@@ -1163,6 +1192,7 @@ struct User: Codable, Identifiable {
         ],
       },
       {
+        format: "comparison",
         title: "React Query Pattern → Observable + .task",
         explanation: `For caching and shared data, combine @Observable with .task. It's simpler than React Query but covers most cases.`,
         react: {
@@ -1245,5 +1275,19 @@ struct UserList: View {
     ],
   },
 ];
+
+export const lessons: Lesson[] = [...swiftBasicsLessons, ...swiftuiLessons];
+
+export function getLessonsByModule(module: "swift-basics" | "swiftui"): Lesson[] {
+  return lessons.filter((l) => l.module === module);
+}
+
+export function getLessonById(id: string): Lesson | undefined {
+  return lessons.find((l) => l.id === id);
+}
+
+export function getCategoriesForModule(module: "swift-basics" | "swiftui"): string[] {
+  return [...new Set(getLessonsByModule(module).map((l) => l.category))];
+}
 
 export const categories = [...new Set(lessons.map((l) => l.category))];
