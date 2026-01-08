@@ -1,5 +1,47 @@
-/* Reset and base styles handled in App.css */
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0c0c0c;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1e1e1e;
+  --color-bg-elevated: #282828;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #707070;
+  --color-border: #333333;
+  --color-accent: #a0a0a0;
+  --color-accent-dim: #808080;
+  --color-accent-warm: #d4a574;
+  --color-accent-cool: #7aa2c4;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Custom scrollbar */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 5px;
+  border: 2px solid var(--color-bg-primary);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg-elevated) var(--color-bg-primary);
 }

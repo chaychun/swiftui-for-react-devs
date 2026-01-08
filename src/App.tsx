@@ -3,7 +3,6 @@ import { lessons } from './data/lessons';
 import { Sidebar } from './components/Sidebar';
 import { LessonView } from './components/LessonView';
 import { Welcome } from './components/Welcome';
-import './App.css';
 
 function App() {
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
@@ -15,14 +14,14 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="flex min-h-screen bg-bg-primary text-text-primary font-sans antialiased">
       <Sidebar
         lessons={lessons}
         activeLesson={activeLesson}
         onSelectLesson={setActiveLesson}
       />
 
-      <main className="main-content">
+      <main className="flex-1 ml-70 min-h-screen">
         {currentLesson ? (
           <LessonView
             lesson={currentLesson}
