@@ -31,3 +31,6 @@ dist-ssr
 
 # Claude
 .claude
+
+# Session continuity (local only)
+thoughts/

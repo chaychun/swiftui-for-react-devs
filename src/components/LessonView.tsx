@@ -1,6 +1,6 @@
-import type { Lesson } from '../types';
-import { CodeComparison } from './CodeComparison';
-import { Lightbulb, ArrowLeft } from 'lucide-react';
+import type { Lesson } from "../types";
+import { CodeComparison } from "./CodeComparison";
+import { Lightbulb, ArrowLeft } from "lucide-react";
 
 interface LessonViewProps {
   lesson: Lesson;
@@ -33,20 +33,26 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
       <div>
         {lesson.sections.map((section, index) => (
           <section key={index} className="mb-16 pb-12 border-b border-border last:border-b-0">
-            <h2 className="text-lg font-medium mb-4 text-text-primary max-w-3xl mx-auto">{section.title}</h2>
+            <h2 className="text-lg font-medium mb-4 text-text-primary max-w-3xl mx-auto">
+              {section.title}
+            </h2>
             <div
               className={explanationStyles}
               dangerouslySetInnerHTML={{
                 __html: section.explanation
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/`([^`]+)`/g, '<code>$1</code>')
+                  .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                  .replace(/`([^`]+)`/g, "<code>$1</code>"),
               }}
             />
 
             <CodeComparison react={section.react} swiftui={section.swiftui} />
 
             {section.tips && section.tips.length > 0 && (
-              <div className="bg-bg-secondary border border-border border-l-2 border-l-accent-warm rounded-lg p-5 mt-6 max-w-3xl mx-auto" role="complementary" aria-label="Tips">
+              <div
+                className="bg-bg-secondary border border-border border-l-2 border-l-accent-warm rounded-lg p-5 mt-6 max-w-3xl mx-auto"
+                role="complementary"
+                aria-label="Tips"
+              >
                 <div className="flex items-center gap-2 font-medium text-accent-warm mb-3 text-sm">
                   <Lightbulb size={16} aria-hidden="true" />
                   <span>Tips for React Devs</span>
@@ -57,8 +63,7 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
                       key={tipIndex}
                       className="relative pl-5 text-sm text-text-secondary before:content-['→'] before:absolute before:left-0 before:text-accent-dim [&>code]:bg-bg-tertiary [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-xs [&>code]:font-mono [&>code]:text-accent-cool"
                       dangerouslySetInnerHTML={{
-                        __html: tip
-                          .replace(/`([^`]+)`/g, '<code>$1</code>')
+                        __html: tip.replace(/`([^`]+)`/g, "<code>$1</code>"),
                       }}
                     />
                   ))}

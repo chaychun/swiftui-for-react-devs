@@ -1,5 +1,5 @@
-import { CodeBlock } from './CodeBlock';
-import { ArrowRight } from 'lucide-react';
+import { CodeBlock } from "./CodeBlock";
+import { ArrowRight } from "lucide-react";
 
 interface CodeComparisonProps {
   react: { code: string };
