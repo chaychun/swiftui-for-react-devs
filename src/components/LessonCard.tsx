@@ -5,12 +5,14 @@ import { ChevronRight } from "lucide-react";
 interface LessonCardProps {
   lesson: Lesson;
   isActive: boolean;
+  onClick?: () => void;
 }
 
-export function LessonCard({ lesson, isActive }: LessonCardProps) {
+export function LessonCard({ lesson, isActive, onClick }: LessonCardProps) {
   return (
     <Link
       to={`/lessons/${lesson.id}`}
+      onClick={onClick}
       className={`group w-full flex items-center justify-between py-2.5 px-3 text-left cursor-pointer border-l-2 no-underline ${
         isActive
           ? "bg-bg-tertiary border-l-accent-warm text-text-primary"

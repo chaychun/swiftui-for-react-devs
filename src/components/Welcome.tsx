@@ -6,7 +6,7 @@ interface WelcomeProps {
 
 export function Welcome({ onGetStarted }: WelcomeProps) {
   return (
-    <div className="max-w-2xl mx-auto px-8 py-16">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
       <header className="text-left mb-12 pb-8 border-b border-border">
         <h1 className="text-2xl font-normal tracking-tight mb-3 text-text-primary">
           SwiftUI for React Developers

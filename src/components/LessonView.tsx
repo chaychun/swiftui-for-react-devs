@@ -13,8 +13,8 @@ const explanationStyles = `text-[0.9375rem] text-text-secondary mb-6 leading-rel
 
 export function LessonView({ lesson, onBack }: LessonViewProps) {
   return (
-    <article className="p-8">
-      <header className="mb-12 max-w-3xl mx-auto">
+    <article className="p-4 sm:p-6 lg:p-8">
+      <header className="mb-8 lg:mb-12 max-w-3xl mx-auto">
         <button
           className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-border rounded text-text-secondary text-sm cursor-pointer transition-all duration-150 mb-6 hover:bg-bg-tertiary hover:text-text-primary"
           onClick={onBack}
@@ -34,7 +34,10 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
 
       <div>
         {lesson.sections.map((section, index) => (
-          <section key={index} className="mb-16 pb-12 border-b border-border last:border-b-0">
+          <section
+            key={index}
+            className="mb-10 lg:mb-16 pb-8 lg:pb-12 border-b border-border last:border-b-0"
+          >
             <h2 className="text-lg font-medium mb-4 text-text-primary max-w-3xl mx-auto">
               {section.title}
             </h2>
