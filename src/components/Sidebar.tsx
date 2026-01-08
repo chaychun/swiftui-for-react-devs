@@ -10,7 +10,12 @@ const MODULE_TABS = [
 
 type ModuleId = (typeof MODULE_TABS)[number]["id"];
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
   const activeLessonId = location.pathname.match(/^\/lessons\/([^/?]+)/)?.[1] ?? null;
   const [activeModule, setActiveModule] = useState<ModuleId>("swift-basics");
@@ -20,12 +25,15 @@ export function Sidebar() {
 
   return (
     <aside
-      className="w-70 bg-bg-secondary border-r border-border flex flex-col fixed h-screen overflow-y-auto"
+      className={`w-70 bg-bg-secondary border-r border-border flex flex-col fixed h-screen overflow-y-auto z-50 transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } lg:translate-x-0`}
       role="navigation"
       aria-label="Lesson navigation"
     >
       <Link
         to="/"
+        onClick={onClose}
         className="block p-6 border-b border-border no-underline hover:bg-bg-tertiary transition-colors"
       >
         <h1 className="text-sm font-medium tracking-widest uppercase mb-1 text-accent-warm">
@@ -74,6 +82,7 @@ export function Sidebar() {
                     key={lesson.id}
                     lesson={lesson}
                     isActive={activeLessonId === lesson.id}
+                    onClick={onClose}
                   />
                 ))}
             </div>

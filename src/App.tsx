@@ -1,8 +1,10 @@
-import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { lessons } from "./data/lessons";
 import { Sidebar } from "./components/Sidebar";
 import { LessonView } from "./components/LessonView";
 import { Welcome } from "./components/Welcome";
+import { Menu, X } from "lucide-react";
 
 function NotFound() {
   return (
@@ -37,11 +39,39 @@ function WelcomePage() {
 }
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  // Close sidebar on route change (mobile)
+  const closeSidebar = () => setIsSidebarOpen(false);
+
   return (
     <div className="flex min-h-screen bg-bg-primary text-text-primary font-sans antialiased">
-      <Sidebar />
+      {/* Mobile header */}
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-bg-secondary border-b border-border px-4 py-3 flex items-center justify-between">
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="p-2 -ml-2 text-text-secondary hover:text-text-primary transition-colors"
+          aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+        >
+          {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        <span className="text-sm font-medium text-accent-warm">SwiftUI for React Devs</span>
+        <div className="w-8" /> {/* Spacer for centering */}
+      </header>
 
-      <main className="flex-1 ml-70 min-h-screen">
+      {/* Overlay for mobile */}
+      {isSidebarOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={closeSidebar}
+          aria-hidden="true"
+        />
+      )}
+
+      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+
+      <main className="flex-1 lg:ml-70 min-h-screen pt-14 lg:pt-0">
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/lessons/:id" element={<LessonPage />} />
