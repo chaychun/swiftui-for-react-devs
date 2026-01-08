@@ -22,13 +22,24 @@ function NotFound() {
 function LessonPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const lesson = lessons.find((l) => l.id === id);
+  const lessonIndex = lessons.findIndex((l) => l.id === id);
+  const lesson = lessons[lessonIndex];
 
   if (!lesson) {
     return <NotFound />;
   }
 
-  return <LessonView lesson={lesson} onBack={() => navigate("/")} />;
+  const previousLesson = lessonIndex > 0 ? lessons[lessonIndex - 1] : undefined;
+  const nextLesson = lessonIndex < lessons.length - 1 ? lessons[lessonIndex + 1] : undefined;
+
+  return (
+    <LessonView
+      lesson={lesson}
+      onBack={() => navigate("/")}
+      previousLesson={previousLesson}
+      nextLesson={nextLesson}
+    />
+  );
 }
 
 function WelcomePage() {

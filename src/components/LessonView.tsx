@@ -1,17 +1,20 @@
+import { Link } from "react-router-dom";
 import type { Lesson } from "../types";
 import { isComparisonSection } from "../types";
 import { CodeComparison } from "./CodeComparison";
 import { CodeBlock } from "./CodeBlock";
-import { Lightbulb, ArrowLeft } from "lucide-react";
+import { Lightbulb, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LessonViewProps {
   lesson: Lesson;
   onBack: () => void;
+  previousLesson?: Lesson;
+  nextLesson?: Lesson;
 }
 
 const explanationStyles = `text-[0.9375rem] text-text-secondary mb-6 leading-relaxed max-w-3xl mx-auto [&>strong]:text-text-primary [&>strong]:font-medium [&>code]:bg-bg-tertiary [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>code]:text-accent-cool`;
 
-export function LessonView({ lesson, onBack }: LessonViewProps) {
+export function LessonView({ lesson, onBack, previousLesson, nextLesson }: LessonViewProps) {
   return (
     <article className="p-8">
       <header className="mb-12 max-w-3xl mx-auto">
@@ -90,6 +93,43 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
           </section>
         ))}
       </div>
+
+      {(previousLesson || nextLesson) && (
+        <nav
+          className="flex justify-between items-center pt-8 mt-8 border-t border-border max-w-3xl mx-auto"
+          aria-label="Lesson navigation"
+        >
+          {previousLesson ? (
+            <Link
+              to={`/lessons/${previousLesson.id}`}
+              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-border text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-colors group"
+            >
+              <ChevronLeft size={18} className="text-text-tertiary group-hover:text-text-secondary" aria-hidden="true" />
+              <div className="text-left">
+                <div className="text-xs text-text-tertiary mb-0.5">Previous</div>
+                <div className="text-sm font-medium">{previousLesson.title}</div>
+              </div>
+            </Link>
+          ) : (
+            <div />
+          )}
+
+          {nextLesson ? (
+            <Link
+              to={`/lessons/${nextLesson.id}`}
+              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-border text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-colors group"
+            >
+              <div className="text-right">
+                <div className="text-xs text-text-tertiary mb-0.5">Next</div>
+                <div className="text-sm font-medium">{nextLesson.title}</div>
+              </div>
+              <ChevronRight size={18} className="text-text-tertiary group-hover:text-text-secondary" aria-hidden="true" />
+            </Link>
+          ) : (
+            <div />
+          )}
+        </nav>
+      )}
     </article>
   );
 }
