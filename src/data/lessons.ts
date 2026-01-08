@@ -1,14 +1,14 @@
-import type { Lesson } from '../types';
+import type { Lesson } from "../types";
 
 export const lessons: Lesson[] = [
   {
-    id: 'basics',
-    title: 'Basic Components',
-    description: 'Learn how React components map to SwiftUI Views',
-    category: 'Fundamentals',
+    id: "basics",
+    title: "Basic Components",
+    description: "Learn how React components map to SwiftUI Views",
+    category: "Fundamentals",
     sections: [
       {
-        title: 'Functional Components → Structs',
+        title: "Functional Components → Structs",
         explanation: `In React, you create components as functions. In SwiftUI, you create **structs** that conform to the **View** protocol. The \`body\` property is like your return statement in React.`,
         react: {
           code: `function Greeting({ name }) {
@@ -35,12 +35,12 @@ export const lessons: Lesson[] = [
         },
         tips: [
           '`some View` is like TypeScript\'s `ReactNode` - it means "some type that conforms to View"',
-          'Props become struct properties (let or var)',
-          'No explicit return needed for single expressions',
+          "Props become struct properties (let or var)",
+          "No explicit return needed for single expressions",
         ],
       },
       {
-        title: 'JSX Elements → View Modifiers',
+        title: "JSX Elements → View Modifiers",
         explanation: `In React, you style with CSS classes or inline styles. In SwiftUI, you use **view modifiers** - chainable methods that transform views.`,
         react: {
           code: `<button
@@ -66,21 +66,21 @@ export const lessons: Lesson[] = [
 .cornerRadius(8)`,
         },
         tips: [
-          'Modifiers are applied in order - later modifiers wrap earlier ones',
-          'Think of each modifier as wrapping the view in a new container',
-          'Common gotcha: `.background()` before `.padding()` vs after gives different results!',
+          "Modifiers are applied in order - later modifiers wrap earlier ones",
+          "Think of each modifier as wrapping the view in a new container",
+          "Common gotcha: `.background()` before `.padding()` vs after gives different results!",
         ],
       },
     ],
   },
   {
-    id: 'state',
-    title: 'State Management',
-    description: 'useState, useEffect, and more → SwiftUI property wrappers',
-    category: 'Fundamentals',
+    id: "state",
+    title: "State Management",
+    description: "useState, useEffect, and more → SwiftUI property wrappers",
+    category: "Fundamentals",
     sections: [
       {
-        title: 'useState → @State',
+        title: "useState → @State",
         explanation: `React's \`useState\` becomes SwiftUI's \`@State\` property wrapper. The key difference: SwiftUI automatically re-renders when @State changes - no setter function needed, just assign directly!`,
         react: {
           code: `function Counter() {
@@ -117,13 +117,13 @@ export const lessons: Lesson[] = [
 }`,
         },
         tips: [
-          '@State should be private - it\'s owned by this view only',
-          'No destructuring needed - just use the variable directly',
-          'Mutating @State automatically triggers a re-render',
+          "@State should be private - it's owned by this view only",
+          "No destructuring needed - just use the variable directly",
+          "Mutating @State automatically triggers a re-render",
         ],
       },
       {
-        title: 'Props with Callbacks → @Binding',
+        title: "Props with Callbacks → @Binding",
         explanation: `When a child needs to modify parent state (like controlled inputs in React), use \`@Binding\`. It's like passing both the value AND the setter.`,
         react: {
           code: `// Parent
@@ -162,13 +162,13 @@ struct TextInput: View {
 }`,
         },
         tips: [
-          'The $ prefix creates a Binding from a @State property',
-          '@Binding is like receiving both value and setValue in one',
-          'Two-way data binding is built into SwiftUI!',
+          "The $ prefix creates a Binding from a @State property",
+          "@Binding is like receiving both value and setValue in one",
+          "Two-way data binding is built into SwiftUI!",
         ],
       },
       {
-        title: 'useEffect → .onAppear / .onChange / .task',
+        title: "useEffect → .onAppear / .onChange / .task",
         explanation: `SwiftUI doesn't have a direct useEffect equivalent. Instead, it has specific modifiers for different scenarios.`,
         react: {
           code: `function UserProfile({ userId }) {
@@ -218,22 +218,22 @@ struct TextInput: View {
 }`,
         },
         tips: [
-          '.task is async by default and auto-cancels on view disappear',
-          '.onAppear is for sync code, .task is for async',
-          '.onChange watches specific values (like useEffect dependencies)',
-          'No cleanup function needed - .task handles cancellation!',
+          ".task is async by default and auto-cancels on view disappear",
+          ".onAppear is for sync code, .task is for async",
+          ".onChange watches specific values (like useEffect dependencies)",
+          "No cleanup function needed - .task handles cancellation!",
         ],
       },
     ],
   },
   {
-    id: 'layout',
-    title: 'Layout & Flexbox',
-    description: 'Flexbox concepts → SwiftUI Stacks',
-    category: 'Layout',
+    id: "layout",
+    title: "Layout & Flexbox",
+    description: "Flexbox concepts → SwiftUI Stacks",
+    category: "Layout",
     sections: [
       {
-        title: 'Flexbox → Stacks',
+        title: "Flexbox → Stacks",
         explanation: `SwiftUI uses **HStack**, **VStack**, and **ZStack** instead of flexbox. They're simpler but less flexible - you choose the main axis upfront.`,
         react: {
           code: `// Horizontal layout
@@ -276,14 +276,14 @@ ZStack(alignment: .bottom) {
 }`,
         },
         tips: [
-          'HStack = flex-direction: row',
-          'VStack = flex-direction: column',
-          'ZStack = position: relative/absolute (layers on z-axis)',
-          'spacing parameter = gap',
+          "HStack = flex-direction: row",
+          "VStack = flex-direction: column",
+          "ZStack = position: relative/absolute (layers on z-axis)",
+          "spacing parameter = gap",
         ],
       },
       {
-        title: 'justify-content & align-items → Stack Alignment',
+        title: "justify-content & align-items → Stack Alignment",
         explanation: `Flexbox's justify-content and align-items become alignment parameters and Spacer views in SwiftUI.`,
         react: {
           code: `// Space between
@@ -338,14 +338,14 @@ HStack(alignment: .bottom) {
 }`,
         },
         tips: [
-          'Spacer() expands to fill available space (like flex: 1)',
-          'Stack alignment param controls cross-axis (like align-items)',
-          'For main-axis distribution, use Spacer() strategically',
-          '.frame(maxWidth: .infinity) makes a view expand',
+          "Spacer() expands to fill available space (like flex: 1)",
+          "Stack alignment param controls cross-axis (like align-items)",
+          "For main-axis distribution, use Spacer() strategically",
+          ".frame(maxWidth: .infinity) makes a view expand",
         ],
       },
       {
-        title: 'Grid Layouts',
+        title: "Grid Layouts",
         explanation: `SwiftUI has LazyVGrid and LazyHGrid for grid layouts, similar to CSS Grid but with a different mental model.`,
         react: {
           code: `// CSS Grid
@@ -396,22 +396,22 @@ LazyVGrid(columns: adaptiveColumns, spacing: 16) {
 }`,
         },
         tips: [
-          'GridItem(.flexible()) = 1fr',
-          'GridItem(.adaptive(minimum:)) = auto-fill with minmax',
-          'GridItem(.fixed(100)) = fixed 100pt column',
-          'LazyVGrid/LazyHGrid only render visible items (like virtualization)',
+          "GridItem(.flexible()) = 1fr",
+          "GridItem(.adaptive(minimum:)) = auto-fill with minmax",
+          "GridItem(.fixed(100)) = fixed 100pt column",
+          "LazyVGrid/LazyHGrid only render visible items (like virtualization)",
         ],
       },
     ],
   },
   {
-    id: 'lists',
-    title: 'Lists & Iteration',
-    description: 'map() and keys → ForEach and Identifiable',
-    category: 'Data Display',
+    id: "lists",
+    title: "Lists & Iteration",
+    description: "map() and keys → ForEach and Identifiable",
+    category: "Data Display",
     sections: [
       {
-        title: 'Array.map() → ForEach',
+        title: "Array.map() → ForEach",
         explanation: `React's pattern of mapping arrays to elements becomes SwiftUI's \`ForEach\`. The key prop becomes the \`Identifiable\` protocol or an explicit id parameter.`,
         react: {
           code: `function TodoList({ todos }) {
@@ -456,14 +456,14 @@ ForEach(items, id: \\.self) { item in
 }`,
         },
         tips: [
-          'Identifiable protocol = automatic key extraction',
-          'id: \\.self uses the item itself as the key (for simple types)',
-          'List adds styling and scrolling automatically',
-          'ForEach is just the iteration - can use anywhere, not just in List',
+          "Identifiable protocol = automatic key extraction",
+          "id: \\.self uses the item itself as the key (for simple types)",
+          "List adds styling and scrolling automatically",
+          "ForEach is just the iteration - can use anywhere, not just in List",
         ],
       },
       {
-        title: 'Conditional Rendering',
+        title: "Conditional Rendering",
         explanation: `SwiftUI supports if/else directly in view builders - no ternary operators or && needed!`,
         react: {
           code: `function UserStatus({ isLoggedIn, user }) {
@@ -512,22 +512,22 @@ ForEach(items, id: \\.self) { item in
 }`,
         },
         tips: [
-          'if/else work directly in SwiftUI view builders',
-          'if let safely unwraps optionals',
-          'No need for ternaries or && patterns',
-          'switch statements also work for multi-case conditions',
+          "if/else work directly in SwiftUI view builders",
+          "if let safely unwraps optionals",
+          "No need for ternaries or && patterns",
+          "switch statements also work for multi-case conditions",
         ],
       },
     ],
   },
   {
-    id: 'navigation',
-    title: 'Navigation & Routing',
-    description: 'React Router concepts → NavigationStack',
-    category: 'Navigation',
+    id: "navigation",
+    title: "Navigation & Routing",
+    description: "React Router concepts → NavigationStack",
+    category: "Navigation",
     sections: [
       {
-        title: 'React Router → NavigationStack',
+        title: "React Router → NavigationStack",
         explanation: `SwiftUI uses a stack-based navigation model. Instead of routes and URLs, you push/pop views onto a navigation stack.`,
         react: {
           code: `// React Router setup
@@ -584,14 +584,14 @@ struct UserList: View {
 }`,
         },
         tips: [
-          'NavigationStack wraps your navigable content',
-          'NavigationLink is like a <Link> that pushes a view',
-          '.navigationDestination defines what view to show for a type',
-          'No URL strings - navigation is type-safe!',
+          "NavigationStack wraps your navigable content",
+          "NavigationLink is like a <Link> that pushes a view",
+          ".navigationDestination defines what view to show for a type",
+          "No URL strings - navigation is type-safe!",
         ],
       },
       {
-        title: 'Modals & Sheets',
+        title: "Modals & Sheets",
         explanation: `React typically uses state + portal for modals. SwiftUI has built-in .sheet() and .fullScreenCover() modifiers.`,
         react: {
           code: `function App() {
@@ -651,22 +651,22 @@ struct UserList: View {
 }`,
         },
         tips: [
-          '.sheet(isPresented:) for boolean-controlled modals',
-          '.sheet(item:) for optional-item-controlled modals (auto-dismisses when nil)',
-          '.fullScreenCover() for full-screen modals',
-          'Sheets automatically handle dismiss gestures',
+          ".sheet(isPresented:) for boolean-controlled modals",
+          ".sheet(item:) for optional-item-controlled modals (auto-dismisses when nil)",
+          ".fullScreenCover() for full-screen modals",
+          "Sheets automatically handle dismiss gestures",
         ],
       },
     ],
   },
   {
-    id: 'forms',
-    title: 'Forms & Inputs',
-    description: 'Controlled components → Two-way binding',
-    category: 'Forms',
+    id: "forms",
+    title: "Forms & Inputs",
+    description: "Controlled components → Two-way binding",
+    category: "Forms",
     sections: [
       {
-        title: 'Controlled Inputs → TextField',
+        title: "Controlled Inputs → TextField",
         explanation: `React's controlled component pattern with value + onChange becomes simple two-way binding with $variable in SwiftUI.`,
         react: {
           code: `function LoginForm() {
@@ -726,15 +726,15 @@ struct UserList: View {
 }`,
         },
         tips: [
-          'The $ prefix creates a two-way binding automatically',
-          'SecureField is the password input equivalent',
-          'Toggle replaces checkbox inputs',
-          'Form adds automatic styling and grouping',
-          '.textContentType helps with autofill',
+          "The $ prefix creates a two-way binding automatically",
+          "SecureField is the password input equivalent",
+          "Toggle replaces checkbox inputs",
+          "Form adds automatic styling and grouping",
+          ".textContentType helps with autofill",
         ],
       },
       {
-        title: 'Select/Dropdown → Picker',
+        title: "Select/Dropdown → Picker",
         explanation: `HTML select elements become SwiftUI Pickers. There are multiple styles available.`,
         react: {
           code: `function Settings() {
@@ -795,22 +795,22 @@ struct UserList: View {
 }`,
         },
         tips: [
-          '.tag() must match the type of selection binding',
-          'Picker has multiple styles: .menu, .segmented, .wheel',
-          'Slider is the range input equivalent',
-          'Stepper is great for integer increment/decrement',
+          ".tag() must match the type of selection binding",
+          "Picker has multiple styles: .menu, .segmented, .wheel",
+          "Slider is the range input equivalent",
+          "Stepper is great for integer increment/decrement",
         ],
       },
     ],
   },
   {
-    id: 'context',
-    title: 'Global State & Context',
-    description: 'Context API → Environment and ObservableObject',
-    category: 'State',
+    id: "context",
+    title: "Global State & Context",
+    description: "Context API → Environment and ObservableObject",
+    category: "State",
     sections: [
       {
-        title: 'Context API → @Environment',
+        title: "Context API → @Environment",
         explanation: `React's Context API becomes SwiftUI's Environment. System values like color scheme are automatically available.`,
         react: {
           code: `// Create context
@@ -858,14 +858,14 @@ struct ContentView: View {
 }`,
         },
         tips: [
-          'Many values are built-in: colorScheme, locale, sizeCategory',
-          '@Environment reads values from ancestor views',
-          'Custom environment values require defining an EnvironmentKey',
-          'Environment is great for dependency injection',
+          "Many values are built-in: colorScheme, locale, sizeCategory",
+          "@Environment reads values from ancestor views",
+          "Custom environment values require defining an EnvironmentKey",
+          "Environment is great for dependency injection",
         ],
       },
       {
-        title: 'Global State → @Observable',
+        title: "Global State → @Observable",
         explanation: `For app-wide state (like Redux or Zustand), SwiftUI uses @Observable classes. Views automatically update when observed properties change.`,
         react: {
           code: `// Zustand store
@@ -932,22 +932,22 @@ struct CartButton: View {
 }`,
         },
         tips: [
-          '@Observable is new in iOS 17 - simpler than ObservableObject',
-          'Views only re-render when properties they READ change',
-          'Inject with .environment(), read with @Environment',
-          'For iOS 16 and earlier, use ObservableObject + @Published',
+          "@Observable is new in iOS 17 - simpler than ObservableObject",
+          "Views only re-render when properties they READ change",
+          "Inject with .environment(), read with @Environment",
+          "For iOS 16 and earlier, use ObservableObject + @Published",
         ],
       },
     ],
   },
   {
-    id: 'animations',
-    title: 'Animations',
-    description: 'CSS transitions and Framer Motion → SwiftUI animations',
-    category: 'UI',
+    id: "animations",
+    title: "Animations",
+    description: "CSS transitions and Framer Motion → SwiftUI animations",
+    category: "UI",
     sections: [
       {
-        title: 'CSS Transitions → withAnimation',
+        title: "CSS Transitions → withAnimation",
         explanation: `SwiftUI animations are declarative. Wrap state changes in \`withAnimation\` and SwiftUI figures out what to animate.`,
         react: {
           code: `// CSS approach
@@ -1005,14 +1005,14 @@ struct Box: View {
 }`,
         },
         tips: [
-          'withAnimation wraps state changes - SwiftUI animates the visual differences',
-          '.animation() modifier adds implicit animation when a value changes',
-          'Built-in curves: .linear, .easeIn, .easeOut, .easeInOut, .spring()',
-          'Spring animations are the default and usually look best',
+          "withAnimation wraps state changes - SwiftUI animates the visual differences",
+          ".animation() modifier adds implicit animation when a value changes",
+          "Built-in curves: .linear, .easeIn, .easeOut, .easeInOut, .spring()",
+          "Spring animations are the default and usually look best",
         ],
       },
       {
-        title: 'Enter/Exit Animations → transition',
+        title: "Enter/Exit Animations → transition",
         explanation: `For views appearing/disappearing (like Framer Motion's AnimatePresence), use the .transition() modifier.`,
         react: {
           code: `// Framer Motion
@@ -1074,23 +1074,23 @@ struct ContentView: View {
 }`,
         },
         tips: [
-          '.transition() defines enter/exit animations',
-          'Must use withAnimation when toggling the condition',
-          '.asymmetric() for different enter/exit animations',
-          '.combined(with:) chains multiple transitions',
-          'Built-in: .opacity, .scale, .slide, .move(edge:)',
+          ".transition() defines enter/exit animations",
+          "Must use withAnimation when toggling the condition",
+          ".asymmetric() for different enter/exit animations",
+          ".combined(with:) chains multiple transitions",
+          "Built-in: .opacity, .scale, .slide, .move(edge:)",
         ],
       },
     ],
   },
   {
-    id: 'networking',
-    title: 'Data Fetching',
-    description: 'fetch/axios and React Query → URLSession and async/await',
-    category: 'Data',
+    id: "networking",
+    title: "Data Fetching",
+    description: "fetch/axios and React Query → URLSession and async/await",
+    category: "Data",
     sections: [
       {
-        title: 'fetch() → URLSession',
+        title: "fetch() → URLSession",
         explanation: `Swift has built-in async/await that works seamlessly with SwiftUI's .task modifier. No external libraries needed!`,
         react: {
           code: `function UserProfile({ userId }) {
@@ -1156,14 +1156,14 @@ struct User: Codable, Identifiable {
 }`,
         },
         tips: [
-          '.task auto-cancels when view disappears',
-          'Codable is Swift\'s built-in JSON serialization (like Zod + JSON.parse)',
-          'URLSession is built-in - no axios/fetch libraries needed',
-          'async/await is native to Swift',
+          ".task auto-cancels when view disappears",
+          "Codable is Swift's built-in JSON serialization (like Zod + JSON.parse)",
+          "URLSession is built-in - no axios/fetch libraries needed",
+          "async/await is native to Swift",
         ],
       },
       {
-        title: 'React Query Pattern → Observable + .task',
+        title: "React Query Pattern → Observable + .task",
         explanation: `For caching and shared data, combine @Observable with .task. It's simpler than React Query but covers most cases.`,
         react: {
           code: `// React Query
@@ -1236,14 +1236,14 @@ struct UserList: View {
 }`,
         },
         tips: [
-          '@MainActor ensures UI updates happen on main thread',
-          '.refreshable adds pull-to-refresh automatically',
-          'The store persists across view recreations',
-          'For complex caching, consider third-party libraries',
+          "@MainActor ensures UI updates happen on main thread",
+          ".refreshable adds pull-to-refresh automatically",
+          "The store persists across view recreations",
+          "For complex caching, consider third-party libraries",
         ],
       },
     ],
   },
 ];
 
-export const categories = [...new Set(lessons.map(l => l.category))];
+export const categories = [...new Set(lessons.map((l) => l.category))];
