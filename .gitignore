@@ -29,8 +29,36 @@ dist-ssr
 # Conductor
 .context
 
-# Claude
-.claude
+# Claude Code - local runtime artifacts (don't commit)
+.claude/cache/
+.claude/learnings/
+.claude/tsc-cache/
+.claude/settings.local.json
 
-# Session continuity (local only)
+# Git-specific reasoning history (per-developer)
+.git/claude/
+
+# Session continuity - local only (don't commit)
 thoughts/
+!thoughts/shared/
+!thoughts/shared/.gitkeep
+!thoughts/shared/plans/
+!thoughts/shared/plans/.gitkeep
+!thoughts/shared/research/
+!thoughts/shared/research/.gitkeep
+!thoughts/shared/handoffs/
+!thoughts/shared/handoffs/.gitkeep
+
+# Workspace - user scripts (privacy)
+workspace/
+
+# Secrets & environment
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*secret*
+*password*
+.secrets/
