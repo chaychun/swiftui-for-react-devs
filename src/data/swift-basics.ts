@@ -12,6 +12,7 @@ export const swiftBasicsLessons: Lesson[] = [
     category: "Type System",
     sections: [
       {
+        format: "comparison",
         title: "Basic Type Annotations",
         explanation: `Swift uses **capital letters** for all type names: \`String\`, \`Int\`, \`Bool\`, \`Double\`. There's no \`number\` type - Swift distinguishes between integers and floating-point numbers.`,
         leftTitle: "TypeScript",
@@ -48,6 +49,7 @@ func greet(name: String) -> String {
         ],
       },
       {
+        format: "comparison",
         title: "Type Inference",
         explanation: `Both TypeScript and Swift excel at **type inference**, but Swift is stricter with numeric types. Swift infers integers vs doubles based on the literal value.`,
         leftTitle: "TypeScript",
@@ -86,6 +88,7 @@ let values: [Double] = [1, 2.5, 3]`,
         ],
       },
       {
+        format: "comparison",
         title: "Arrays & Dictionaries",
         explanation: `Swift uses bracket syntax for collections: \`[String]\` for arrays and \`[String: Int]\` for dictionaries (objects/maps).`,
         leftTitle: "TypeScript",
@@ -137,6 +140,7 @@ let emptyDict: [String: Int] = [:]`,
         ],
       },
       {
+        format: "comparison",
         title: "String Interpolation",
         explanation: `Both languages support embedding values in strings, but with different syntax. Swift uses \`\\(value)\` inside regular strings.`,
         leftTitle: "TypeScript",
@@ -195,6 +199,7 @@ let poem = """
     category: "Type System",
     sections: [
       {
+        format: "comparison",
         title: "Optional Declaration",
         explanation: `Swift uses \`?\` to mark optional types - values that might be \`nil\` (Swift's \`null\`). This is similar to TypeScript's \`| undefined\` but enforced at compile time.`,
         leftTitle: "TypeScript",
@@ -242,6 +247,7 @@ func greet(name: String?) -> String {
         ],
       },
       {
+        format: "comparison",
         title: "Optional Chaining",
         explanation: `Both languages use \`?.\` for optional chaining, letting you safely access properties on potentially nil/undefined values.`,
         leftTitle: "TypeScript",
@@ -298,6 +304,7 @@ let imageUrl = user.profile?.avatar?.url ?? "default.png"`,
         ],
       },
       {
+        format: "comparison",
         title: "Unwrapping with if let",
         explanation: `Swift's \`if let\` syntax safely unwraps an optional into a non-optional value within a scope. This is cleaner than TypeScript's truthiness checks.`,
         leftTitle: "TypeScript",
@@ -351,6 +358,7 @@ if let input {
         ],
       },
       {
+        format: "comparison",
         title: "Guard Statements",
         explanation: `\`guard let\` is like an inverted \`if let\` - it handles the failure case first and lets the success case flow through. Great for early returns.`,
         leftTitle: "TypeScript",
@@ -411,6 +419,7 @@ func validateUser(user: User?) -> Bool {
         ],
       },
       {
+        format: "comparison",
         title: "Force Unwrap & Nil Coalescing",
         explanation: `Force unwrap (\`!\`) crashes if nil - use sparingly. Nil coalescing (\`??\`) provides a default value safely.`,
         leftTitle: "TypeScript",
@@ -469,6 +478,7 @@ let text = input ?? "default"  // text is ""`,
     category: "Memory & Types",
     sections: [
       {
+        format: "comparison",
         title: "Class Syntax",
         explanation: `Classes in Swift look similar to TypeScript classes. They are **reference types** - when you assign or pass them, you're sharing the same instance.`,
         leftTitle: "TypeScript",
@@ -517,6 +527,7 @@ print(alice.greet())`,
         ],
       },
       {
+        format: "comparison",
         title: "Struct Syntax",
         explanation: `Structs are Swift's **value types**. They get copied when assigned or passed. TypeScript doesn't have true value-type structs.`,
         leftTitle: "TypeScript",
@@ -568,6 +579,7 @@ print(points1[0].x)  // 0 - unchanged`,
         ],
       },
       {
+        format: "comparison",
         title: "Value vs Reference Demo",
         explanation: `The key difference: classes share data (reference), structs copy data (value). This affects how changes propagate through your code.`,
         leftTitle: "TypeScript",
@@ -623,6 +635,7 @@ print(s1.value)  // 0 - unchanged`,
         ],
       },
       {
+        format: "comparison",
         title: "Mutating Methods",
         explanation: `Struct methods that modify \`self\` must be marked \`mutating\`. This is because structs are value types - modification creates a conceptually new value.`,
         leftTitle: "TypeScript",
@@ -685,6 +698,7 @@ let v3 = v2.scaled(by: 2)  // OK - new value`,
         ],
       },
       {
+        format: "comparison",
         title: "When to Use Which",
         explanation: `Swift convention: **prefer structs** unless you need reference semantics. SwiftUI Views, models, and most data types should be structs.`,
         leftTitle: "TypeScript",
@@ -752,6 +766,7 @@ class TimeoutError: NetworkError { /*...*/ }`,
     category: "Memory & Types",
     sections: [
       {
+        format: "comparison",
         title: "Basic Protocol",
         explanation: `Swift protocols define a contract of properties and methods that conforming types must implement. Very similar to TypeScript interfaces!`,
         leftTitle: "TypeScript",
@@ -812,6 +827,7 @@ func render(item: Drawable) {
         ],
       },
       {
+        format: "comparison",
         title: "Conforming to Protocols",
         explanation: `Conformance syntax uses a colon after the type name. You can also add conformance in extensions, keeping your types organized.`,
         leftTitle: "TypeScript",
@@ -873,6 +889,7 @@ extension Product: Hashable {
         ],
       },
       {
+        format: "comparison",
         title: "Protocol Properties",
         explanation: `Protocol properties must specify if they're gettable (\`{ get }\`) or settable (\`{ get set }\`). This is more explicit than TypeScript.`,
         leftTitle: "TypeScript",
@@ -938,6 +955,7 @@ struct Car: Vehicle {
         ],
       },
       {
+        format: "comparison",
         title: "Protocol Extensions (Swift Superpower)",
         explanation: `Swift lets you add **default implementations** to protocols via extensions. This is like mixing in behavior - powerful for code reuse!`,
         leftTitle: "TypeScript",
@@ -1005,6 +1023,7 @@ print(person.shout())  // "HELLO, I'M ALICE"`,
         ],
       },
       {
+        format: "comparison",
         title: "The View Protocol",
         explanation: `SwiftUI's \`View\` protocol is the foundation of all UI. Understanding protocols helps you understand why Views work the way they do.`,
         leftTitle: "TypeScript",
@@ -1074,6 +1093,7 @@ struct Container<Content: View>: View {
     category: "Functions & Closures",
     sections: [
       {
+        format: "comparison",
         title: "Basic Closure Syntax",
         explanation: `Swift closures are enclosed in braces with parameters and return type before the \`in\` keyword. They're similar to arrow functions but with different syntax.`,
         leftTitle: "TypeScript",
@@ -1120,6 +1140,7 @@ let greet = { print("Hello!") }`,
         ],
       },
       {
+        format: "comparison",
         title: "Trailing Closure Syntax",
         explanation: `When a closure is the last argument, you can write it after the parentheses. If it's the only argument, you can omit the parentheses entirely!`,
         leftTitle: "TypeScript",
@@ -1177,6 +1198,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
         ],
       },
       {
+        format: "comparison",
         title: "Shorthand Arguments",
         explanation: `Swift provides \`$0\`, \`$1\`, etc. as automatic argument names. This makes very short closures even more concise.`,
         leftTitle: "TypeScript",
@@ -1224,6 +1246,7 @@ let names = users.map(\\.name)`,
         ],
       },
       {
+        format: "comparison",
         title: "Multiple Trailing Closures",
         explanation: `Swift 5.3+ allows multiple trailing closures with labels. This is heavily used in SwiftUI for composing views with different purposes.`,
         leftTitle: "TypeScript",
@@ -1294,6 +1317,7 @@ sheet(isPresented: $showSheet) {
     category: "Advanced Types",
     sections: [
       {
+        format: "comparison",
         title: "Basic Enums",
         explanation: `Swift enums are type-safe and don't require explicit values. They're similar to TypeScript's string literal unions but with better ergonomics.`,
         leftTitle: "TypeScript",
@@ -1359,6 +1383,7 @@ func handleStatus(_ s: Status) -> String {
         ],
       },
       {
+        format: "comparison",
         title: "Associated Values (The Superpower)",
         explanation: `Swift enums can hold **associated values** - different data for each case. This is like TypeScript's discriminated unions but built into the language.`,
         leftTitle: "TypeScript",
@@ -1423,6 +1448,7 @@ case .loading:
         ],
       },
       {
+        format: "comparison",
         title: "Pattern Matching",
         explanation: `Swift's pattern matching with \`if case\` and \`guard case\` lets you check and extract associated values without a full switch statement.`,
         leftTitle: "TypeScript",
@@ -1493,6 +1519,7 @@ default:
         ],
       },
       {
+        format: "comparison",
         title: "Optional is Just an Enum",
         explanation: `Here's a mind-bender: Swift's \`Optional<T>\` is just an enum with two cases. Understanding this explains ALL optional behavior!`,
         leftTitle: "TypeScript",
@@ -1562,6 +1589,7 @@ if case .some(let value) = name {
     category: "Advanced Types",
     sections: [
       {
+        format: "comparison",
         title: "What Property Wrappers Are",
         explanation: `Property wrappers add behavior to properties using the \`@WrapperName\` syntax. They're central to SwiftUI - \`@State\`, \`@Binding\`, \`@Published\` are all property wrappers.`,
         leftTitle: "TypeScript",
@@ -1627,6 +1655,7 @@ struct LoginForm: View {
         ],
       },
       {
+        format: "comparison",
         title: "How Property Wrappers Work",
         explanation: `A property wrapper is a struct with a \`wrappedValue\` property. The compiler transforms your code to use the wrapper behind the scenes.`,
         leftTitle: "TypeScript",
@@ -1695,6 +1724,7 @@ print(settings.volume) // 100`,
         ],
       },
       {
+        format: "comparison",
         title: "Projected Value ($prefix)",
         explanation: `Property wrappers can expose a **projected value** accessed with \`$\` prefix. SwiftUI uses this for \`Binding\` - \`$count\` gives you a binding to \`count\`.`,
         leftTitle: "TypeScript",
@@ -1761,6 +1791,7 @@ struct Counter: View {
         ],
       },
       {
+        format: "comparison",
         title: "SwiftUI's Property Wrappers",
         explanation: `SwiftUI provides several property wrappers for different state management scenarios. Here's when to use each one. **React equivalents in comments!**`,
         leftTitle: "TypeScript",
@@ -1851,6 +1882,7 @@ struct ThemedView: View {
     category: "Advanced Types",
     sections: [
       {
+        format: "comparison",
         title: "Generic Functions",
         explanation: `Generic functions work similarly in both languages - use angle brackets to define type parameters that get filled in at call site.`,
         leftTitle: "TypeScript",
@@ -1907,6 +1939,7 @@ func first<T>(_ array: [T]) -> T? {
         ],
       },
       {
+        format: "comparison",
         title: "Generic Constraints",
         explanation: `Both languages let you constrain generics to types that conform to certain protocols/interfaces. Swift uses \`:\` where TypeScript uses \`extends\`.`,
         leftTitle: "TypeScript",
@@ -1964,6 +1997,7 @@ func display<T>(_ item: T) -> String where T: HasId, T: HasName {
         ],
       },
       {
+        format: "comparison",
         title: "Opaque Types (some)",
         explanation: `The \`some\` keyword creates **opaque types** - the caller knows it conforms to a protocol but not the concrete type. This is how \`some View\` works!`,
         leftTitle: "TypeScript",
@@ -2031,6 +2065,7 @@ func getAnyAnimal() -> any Animal {
         ],
       },
       {
+        format: "comparison",
         title: "Why `some View`",
         explanation: `SwiftUI uses \`some View\` because View has an associated type (Self.Body). Understanding this explains SwiftUI's type system.`,
         leftTitle: "TypeScript",
@@ -2102,6 +2137,7 @@ struct MyComponent: View {
     category: "Safety & Errors",
     sections: [
       {
+        format: "comparison",
         title: "Access Levels",
         explanation: `Swift has five access levels, more granular than TypeScript's three. The key difference: Swift defaults to \`internal\`, not \`public\`.`,
         leftTitle: "TypeScript",
@@ -2161,6 +2197,7 @@ private func privateFn() {}`,
         ],
       },
       {
+        format: "comparison",
         title: "Default is Internal",
         explanation: `A key Swift difference: everything is \`internal\` by default. This means you must explicitly mark things \`public\` to expose them from a module.`,
         leftTitle: "TypeScript",
@@ -2214,6 +2251,7 @@ public struct Oops {
         ],
       },
       {
+        format: "comparison",
         title: "Private in SwiftUI",
         explanation: `In SwiftUI, use \`private\` for \`@State\` properties. This enforces that state is only modified by the owning view.`,
         leftTitle: "TypeScript",
@@ -2289,6 +2327,7 @@ struct Parent: View {
     category: "Safety & Errors",
     sections: [
       {
+        format: "comparison",
         title: "Throwing Functions",
         explanation: `Swift requires you to mark functions that can throw errors with \`throws\`. Unlike JavaScript, you **must** handle potential errors - can't ignore them.`,
         leftTitle: "TypeScript",
@@ -2347,6 +2386,7 @@ let result = try riskyOperation()  // Must acknowledge`,
         ],
       },
       {
+        format: "comparison",
         title: "do-catch Syntax",
         explanation: `Swift uses \`do { try } catch { }\` instead of \`try { } catch { }\`. The \`try\` keyword marks exactly which call might throw.`,
         leftTitle: "TypeScript",
@@ -2407,6 +2447,7 @@ do {
         ],
       },
       {
+        format: "comparison",
         title: "try? and try!",
         explanation: `Swift provides shortcuts: \`try?\` converts errors to nil, \`try!\` crashes if error (like force unwrap). Use sparingly!`,
         leftTitle: "TypeScript",
@@ -2468,6 +2509,7 @@ let z = try! mustNotFail()      // Crash on error`,
         ],
       },
       {
+        format: "comparison",
         title: "Result Type",
         explanation: `\`Result<Success, Failure>\` is an enum for representing success/error without throwing. Useful for async operations and explicit error handling.`,
         leftTitle: "TypeScript",
