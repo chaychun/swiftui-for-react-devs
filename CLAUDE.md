@@ -15,6 +15,10 @@ bun run lint         # oxlint with auto-fix
 bun run format       # Format with oxfmt
 bun run format:check # Check formatting without modifying
 bun run preview      # Preview production build
+
+# Testing
+bun run test         # Run tests once
+bun run test:watch   # Run tests in watch mode
 ```
 
 ## Architecture
@@ -24,12 +28,19 @@ This is a React learning app that teaches SwiftUI to React developers through si
 ### Data Flow
 
 ```
-lessons.ts (content) → App.tsx (state: activeLesson) → LessonView → CodeComparison → CodeBlock
+lessons.ts (content) → React Router → LessonView → CodeComparison → CodeBlock
 ```
 
-- **No routing** - App.tsx manages `activeLesson` state to switch between Welcome and LessonView
-- **Sidebar** - Always visible, handles lesson navigation via `onSelectLesson` callback
+- **Routing** - Uses React Router with routes for each lesson (`/lessons/:id`)
+- **Sidebar** - Always visible, uses `<Link>` components for navigation
 - **Lessons** - Defined in `src/data/lessons.ts` as typed objects with categories and sections
+
+### Routes
+
+| Path | Component | Description |
+|------|-----------|-------------|
+| `/` | Welcome | Home page with "Get Started" button |
+| `/lessons/:id` | LessonView | Individual lesson page |
 
 ### Lesson Structure
 
