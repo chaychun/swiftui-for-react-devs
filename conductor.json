@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "setup": "bun install",
+    "setup": "bun install; cp -r \"$CONDUCTOR_ROOT_PATH/.claude\" .claude 2>/dev/null || true; cp -r \"$CONDUCTOR_ROOT_PATH/thoughts\" thoughts 2>/dev/null || true",
     "run": "bun run dev"
   }
 }
