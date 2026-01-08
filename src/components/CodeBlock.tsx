@@ -15,7 +15,7 @@ const darkUtilitarianTheme = {
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata"],
-      style: { color: "#606060", fontStyle: "italic" },
+      style: { color: "#606060", fontStyle: "italic" as const },
     },
     { types: ["punctuation"], style: { color: "#888888" } },
     { types: ["property", "tag", "constant", "symbol", "deleted"], style: { color: "#d4a574" } },
