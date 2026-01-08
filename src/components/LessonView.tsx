@@ -34,7 +34,10 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
 
       <div>
         {lesson.sections.map((section, index) => (
-          <section key={index} className="mb-10 lg:mb-16 pb-8 lg:pb-12 border-b border-border last:border-b-0">
+          <section
+            key={index}
+            className="mb-10 lg:mb-16 pb-8 lg:pb-12 border-b border-border last:border-b-0"
+          >
             <h2 className="text-lg font-medium mb-4 text-text-primary max-w-3xl mx-auto">
               {section.title}
             </h2>
