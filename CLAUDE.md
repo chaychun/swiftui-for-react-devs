@@ -37,10 +37,10 @@ lessons.ts (content) → React Router → LessonView → CodeComparison → Code
 
 ### Routes
 
-| Path | Component | Description |
-|------|-----------|-------------|
-| `/` | Welcome | Home page with "Get Started" button |
-| `/lessons/:id` | LessonView | Individual lesson page |
+| Path           | Component  | Description                         |
+| -------------- | ---------- | ----------------------------------- |
+| `/`            | Welcome    | Home page with "Get Started" button |
+| `/lessons/:id` | LessonView | Individual lesson page              |
 
 ### Lesson Structure
 
