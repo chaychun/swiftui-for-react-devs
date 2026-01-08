@@ -58,7 +58,12 @@ export function Sidebar() {
         ))}
       </div>
 
-      <nav className="flex-1 p-4" id={`${activeModule}-panel`} role="tabpanel" aria-label={`${activeModule} lessons`}>
+      <nav
+        className="flex-1 p-4"
+        id={`${activeModule}-panel`}
+        role="tabpanel"
+        aria-label={`${activeModule} lessons`}
+      >
         {moduleCategories.length === 0 ? (
           <p className="text-xs text-text-muted px-3 py-2 italic">No lessons yet</p>
         ) : (
@@ -70,7 +75,11 @@ export function Sidebar() {
               {moduleLessons
                 .filter((lesson) => lesson.category === category)
                 .map((lesson) => (
-                  <LessonCard key={lesson.id} lesson={lesson} isActive={activeLessonId === lesson.id} />
+                  <LessonCard
+                    key={lesson.id}
+                    lesson={lesson}
+                    isActive={activeLessonId === lesson.id}
+                  />
                 ))}
             </div>
           ))

@@ -6,7 +6,8 @@ export const swiftBasicsLessons: Lesson[] = [
   {
     id: "types-and-inference",
     title: "Types & Type Inference",
-    description: "Swift's type system compared to TypeScript - capitals, inference, and collections",
+    description:
+      "Swift's type system compared to TypeScript - capitals, inference, and collections",
     module: "swift-basics",
     category: "Type System",
     sections: [
@@ -179,7 +180,7 @@ let poem = """
         tips: [
           "Swift uses `\\(value)` not `${value}` for interpolation",
           "Regular double quotes work - no special backtick syntax needed",
-          "Triple quotes `\"\"\"` for multi-line strings",
+          'Triple quotes `"""` for multi-line strings',
           "Any expression works inside `\\( )`",
         ],
       },
@@ -188,7 +189,8 @@ let poem = """
   {
     id: "optionals-nil-safety",
     title: "Optionals & Nil Safety",
-    description: "Swift's approach to null safety - Optional types, unwrapping, and guard statements",
+    description:
+      "Swift's approach to null safety - Optional types, unwrapping, and guard statements",
     module: "swift-basics",
     category: "Type System",
     sections: [
@@ -344,7 +346,7 @@ if let input {
         tips: [
           "`if let x = x` unwraps optional x into non-optional x",
           "Swift 5.7+ shorthand: `if let x` when variable name matches",
-          "Unlike TS, empty string `\"\"` is NOT considered nil",
+          'Unlike TS, empty string `""` is NOT considered nil',
           "The unwrapped variable only exists inside the if block",
         ],
       },

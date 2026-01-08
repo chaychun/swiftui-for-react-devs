@@ -12,7 +12,8 @@ export function Welcome({ onGetStarted }: WelcomeProps) {
           SwiftUI for React Developers
         </h1>
         <p className="text-[0.9375rem] text-text-secondary mb-8">
-          Learn SwiftUI fast by mapping it to React concepts you already know. Start with Swift Basics to learn the language fundamentals, then dive into SwiftUI patterns.
+          Learn SwiftUI fast by mapping it to React concepts you already know. Start with Swift
+          Basics to learn the language fundamentals, then dive into SwiftUI patterns.
         </p>
         <button
           className="inline-flex items-center gap-2 px-5 py-2.5 text-[0.8125rem] font-medium bg-accent-warm text-bg-primary border-0 rounded cursor-pointer transition-all duration-150 hover:brightness-110"
