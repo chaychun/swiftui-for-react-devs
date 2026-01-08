@@ -17,7 +17,10 @@ export function Sidebar({ lessons }: SidebarProps) {
       role="navigation"
       aria-label="Lesson navigation"
     >
-      <Link to="/" className="block p-6 border-b border-border no-underline hover:bg-bg-tertiary transition-colors">
+      <Link
+        to="/"
+        className="block p-6 border-b border-border no-underline hover:bg-bg-tertiary transition-colors"
+      >
         <h1 className="text-sm font-medium tracking-widest uppercase mb-1 text-accent-warm">
           SwiftUI for React Devs
         </h1>
@@ -33,7 +36,11 @@ export function Sidebar({ lessons }: SidebarProps) {
             {lessons
               .filter((lesson) => lesson.category === category)
               .map((lesson) => (
-                <LessonCard key={lesson.id} lesson={lesson} isActive={activeLessonId === lesson.id} />
+                <LessonCard
+                  key={lesson.id}
+                  lesson={lesson}
+                  isActive={activeLessonId === lesson.id}
+                />
               ))}
           </div>
         ))}
