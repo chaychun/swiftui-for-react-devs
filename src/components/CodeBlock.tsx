@@ -6,7 +6,6 @@ interface CodeBlockProps {
   title?: string;
 }
 
-// Dark theme with warm/cool accent colors for better readability
 const darkUtilitarianTheme = {
   plain: {
     color: "#c8c8c8",
@@ -15,7 +14,7 @@ const darkUtilitarianTheme = {
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata"],
-      style: { color: "#606060", fontStyle: "italic" },
+      style: { color: "#606060", fontStyle: "italic" as const },
     },
     { types: ["punctuation"], style: { color: "#888888" } },
     { types: ["property", "tag", "constant", "symbol", "deleted"], style: { color: "#d4a574" } },
@@ -33,7 +32,6 @@ const darkUtilitarianTheme = {
 };
 
 export function CodeBlock({ code, language, title }: CodeBlockProps) {
-  // prism-react-renderer doesn't have swift, use closest alternative
   const prismLang: Language = language === "swift" ? "typescript" : "tsx";
 
   return (

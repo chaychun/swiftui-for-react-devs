@@ -1,10 +1,11 @@
 import type { Lesson } from "../types";
 
-export const lessons: Lesson[] = [
+export const swiftuiLessons: Lesson[] = [
   {
     id: "basics",
     title: "Basic Components",
     description: "Learn how React components map to SwiftUI Views",
+    module: "swiftui",
     category: "Fundamentals",
     sections: [
       {
@@ -77,6 +78,7 @@ export const lessons: Lesson[] = [
     id: "state",
     title: "State Management",
     description: "useState, useEffect, and more → SwiftUI property wrappers",
+    module: "swiftui",
     category: "Fundamentals",
     sections: [
       {
@@ -230,6 +232,7 @@ struct TextInput: View {
     id: "layout",
     title: "Layout & Flexbox",
     description: "Flexbox concepts → SwiftUI Stacks",
+    module: "swiftui",
     category: "Layout",
     sections: [
       {
@@ -408,6 +411,7 @@ LazyVGrid(columns: adaptiveColumns, spacing: 16) {
     id: "lists",
     title: "Lists & Iteration",
     description: "map() and keys → ForEach and Identifiable",
+    module: "swiftui",
     category: "Data Display",
     sections: [
       {
@@ -524,6 +528,7 @@ ForEach(items, id: \\.self) { item in
     id: "navigation",
     title: "Navigation & Routing",
     description: "React Router concepts → NavigationStack",
+    module: "swiftui",
     category: "Navigation",
     sections: [
       {
@@ -663,6 +668,7 @@ struct UserList: View {
     id: "forms",
     title: "Forms & Inputs",
     description: "Controlled components → Two-way binding",
+    module: "swiftui",
     category: "Forms",
     sections: [
       {
@@ -807,6 +813,7 @@ struct UserList: View {
     id: "context",
     title: "Global State & Context",
     description: "Context API → Environment and ObservableObject",
+    module: "swiftui",
     category: "State",
     sections: [
       {
@@ -944,6 +951,7 @@ struct CartButton: View {
     id: "animations",
     title: "Animations",
     description: "CSS transitions and Framer Motion → SwiftUI animations",
+    module: "swiftui",
     category: "UI",
     sections: [
       {
@@ -1087,6 +1095,7 @@ struct ContentView: View {
     id: "networking",
     title: "Data Fetching",
     description: "fetch/axios and React Query → URLSession and async/await",
+    module: "swiftui",
     category: "Data",
     sections: [
       {
@@ -1245,5 +1254,21 @@ struct UserList: View {
     ],
   },
 ];
+
+import { swiftBasicsLessons } from "./swift-basics";
+
+export const lessons: Lesson[] = [...swiftBasicsLessons, ...swiftuiLessons];
+
+export function getLessonsByModule(module: "swift-basics" | "swiftui"): Lesson[] {
+  return lessons.filter((l) => l.module === module);
+}
+
+export function getLessonById(id: string): Lesson | undefined {
+  return lessons.find((l) => l.id === id);
+}
+
+export function getCategoriesForModule(module: "swift-basics" | "swiftui"): string[] {
+  return [...new Set(getLessonsByModule(module).map((l) => l.category))];
+}
 
 export const categories = [...new Set(lessons.map((l) => l.category))];
