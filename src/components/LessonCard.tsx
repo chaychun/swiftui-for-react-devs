@@ -10,7 +10,7 @@ interface LessonCardProps {
 export function LessonCard({ lesson, onClick, isActive }: LessonCardProps) {
   return (
     <button
-      className={`w-full flex items-center justify-between py-2.5 px-3 text-left cursor-pointer transition-all duration-150 border-l-2 ${
+      className={`group w-full flex items-center justify-between py-2.5 px-3 text-left cursor-pointer transition-all duration-150 border-l-2 ${
         isActive
           ? 'bg-bg-tertiary border-l-accent-warm text-text-primary'
           : 'bg-transparent border-l-transparent text-text-secondary hover:bg-bg-tertiary hover:text-text-primary hover:border-l-accent-dim'

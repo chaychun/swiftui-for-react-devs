@@ -7,6 +7,8 @@ interface LessonViewProps {
   onBack: () => void;
 }
 
+const explanationStyles = `text-[0.9375rem] text-text-secondary mb-6 leading-relaxed max-w-3xl mx-auto [&>strong]:text-text-primary [&>strong]:font-medium [&>code]:bg-bg-tertiary [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>code]:text-accent-cool`;
+
 export function LessonView({ lesson, onBack }: LessonViewProps) {
   return (
     <article className="p-8">
@@ -33,7 +35,7 @@ export function LessonView({ lesson, onBack }: LessonViewProps) {
           <section key={index} className="mb-16 pb-12 border-b border-border last:border-b-0">
             <h2 className="text-lg font-medium mb-4 text-text-primary max-w-3xl mx-auto">{section.title}</h2>
             <div
-              className="text-[0.9375rem] text-text-secondary mb-6 leading-relaxed max-w-3xl mx-auto [&>strong]:text-text-primary [&>strong]:font-medium [&>code]:bg-bg-tertiary [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>code]:text-accent-cool"
+              className={explanationStyles}
               dangerouslySetInnerHTML={{
                 __html: section.explanation
                   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
