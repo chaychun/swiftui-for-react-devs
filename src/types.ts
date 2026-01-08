@@ -16,7 +16,7 @@ interface BaseSection {
 }
 
 export interface ComparisonSection extends BaseSection {
-  format?: "comparison";
+  format: "comparison";
   leftTitle?: string;
   rightTitle?: string;
   react: CodeExample;
@@ -42,7 +42,7 @@ export interface QuizQuestion {
 }
 
 export function isComparisonSection(section: LessonSection): section is ComparisonSection {
-  return section.format === "comparison" || section.format === undefined;
+  return section.format === "comparison";
 }
 
 export function isSingleCodeSection(section: LessonSection): section is SingleCodeSection {

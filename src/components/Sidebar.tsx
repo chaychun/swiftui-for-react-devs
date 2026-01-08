@@ -3,17 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { LessonCard } from "./LessonCard";
 import { getCategoriesForModule, getLessonsByModule } from "../data/lessons";
 
-type ModuleId = "swift-basics" | "swiftui";
-
-interface ModuleTab {
-  id: ModuleId;
-  label: string;
-}
-
-const MODULE_TABS: ModuleTab[] = [
+const MODULE_TABS = [
   { id: "swift-basics", label: "Swift Basics" },
   { id: "swiftui", label: "SwiftUI" },
-];
+] as const;
+
+type ModuleId = (typeof MODULE_TABS)[number]["id"];
 
 export function Sidebar() {
   const location = useLocation();

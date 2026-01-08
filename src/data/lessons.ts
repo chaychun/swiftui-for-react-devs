@@ -1,4 +1,5 @@
 import type { Lesson } from "../types";
+import { swiftBasicsLessons } from "./swift-basics";
 
 export const swiftuiLessons: Lesson[] = [
   {
@@ -1254,8 +1255,6 @@ struct UserList: View {
     ],
   },
 ];
-
-import { swiftBasicsLessons } from "./swift-basics";
 
 export const lessons: Lesson[] = [...swiftBasicsLessons, ...swiftuiLessons];
 
