@@ -11,7 +11,7 @@ export function LessonCard({ lesson, isActive }: LessonCardProps) {
   return (
     <Link
       to={`/lessons/${lesson.id}`}
-      className={`group w-full flex items-center justify-between py-2.5 px-3 text-left cursor-pointer transition-all duration-150 border-l-2 no-underline ${
+      className={`group w-full flex items-center justify-between py-2.5 px-3 text-left cursor-pointer border-l-2 no-underline ${
         isActive
           ? "bg-bg-tertiary border-l-accent-warm text-text-primary"
           : "bg-transparent border-l-transparent text-text-secondary hover:bg-bg-tertiary hover:text-text-primary hover:border-l-accent-dim"
@@ -24,7 +24,7 @@ export function LessonCard({ lesson, isActive }: LessonCardProps) {
       </div>
       <ChevronRight
         size={16}
-        className="text-text-muted shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+        className="text-text-muted shrink-0 opacity-0 group-hover:opacity-100"
         aria-hidden="true"
       />
     </Link>
