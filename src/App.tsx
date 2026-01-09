@@ -71,7 +71,7 @@ function App() {
 
       <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
 
-      <main className="flex-1 ml-0 lg:ml-70 min-h-screen pt-14 lg:pt-0">
+      <main className="flex-1 min-w-0 overflow-x-hidden ml-0 lg:ml-70 min-h-screen pt-14 lg:pt-0">
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/lessons/:id" element={<LessonPage />} />
