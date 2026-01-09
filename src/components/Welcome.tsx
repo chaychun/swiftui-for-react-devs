@@ -6,9 +6,9 @@ interface WelcomeProps {
 
 export function Welcome({ onGetStarted }: WelcomeProps) {
   return (
-    <div className="max-w-2xl mx-auto px-8 py-16">
-      <header className="text-left mb-12 pb-8 border-b border-border">
-        <h1 className="text-2xl font-normal tracking-tight mb-3 text-text-primary">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <header className="text-left mb-8 lg:mb-12 pb-6 lg:pb-8 border-b border-border">
+        <h1 className="text-xl sm:text-2xl font-normal tracking-tight mb-3 text-text-primary">
           SwiftUI for React Developers
         </h1>
         <p className="text-[0.9375rem] text-text-secondary mb-8">
@@ -24,7 +24,10 @@ export function Welcome({ onGetStarted }: WelcomeProps) {
         </button>
       </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" aria-label="Key features">
+      <section
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 lg:mb-12"
+        aria-label="Key features"
+      >
         <div className="p-5 bg-bg-secondary border border-border rounded-lg">
           <div
             className="w-10 h-10 flex items-center justify-center bg-bg-tertiary rounded mb-3 text-accent-warm"
