@@ -15,6 +15,22 @@
   --color-accent-cool: #7aa2c4;
 }
 
+/* Light theme overrides (dark is the default from @theme above) */
+:root.light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f8f8;
+  --color-bg-tertiary: #f0f0f0;
+  --color-bg-elevated: #e8e8e8;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #606060;
+  --color-text-muted: #909090;
+  --color-border: #d0d0d0;
+  --color-accent: #606060;
+  --color-accent-dim: #808080;
+  --color-accent-warm: #b8824a;
+  --color-accent-cool: #5a8ab0;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;

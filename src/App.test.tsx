@@ -1,7 +1,8 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
+import { ThemeProvider } from "./context/ThemeContext";
 import { lessons } from "./data/lessons";
 
 afterEach(() => {
@@ -9,10 +10,28 @@ afterEach(() => {
 });
 
 describe("App routing", () => {
+  beforeEach(() => {
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    });
+  });
+
   it("renders welcome page at root path", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </MemoryRouter>,
     );
 
@@ -24,7 +43,9 @@ describe("App routing", () => {
     const firstLesson = lessons[0];
     render(
       <MemoryRouter initialEntries={[`/lessons/${firstLesson.id}`]}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </MemoryRouter>,
     );
 
@@ -35,7 +56,9 @@ describe("App routing", () => {
   it.each(lessons)("renders lesson page for $title", (lesson) => {
     render(
       <MemoryRouter initialEntries={[`/lessons/${lesson.id}`]}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </MemoryRouter>,
     );
 
@@ -45,7 +68,9 @@ describe("App routing", () => {
   it("sidebar links navigate to lesson routes", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </MemoryRouter>,
     );
 

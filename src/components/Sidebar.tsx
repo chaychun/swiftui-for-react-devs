@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LessonCard } from "./LessonCard";
+import { ThemeToggle } from "./ThemeToggle";
 import { getCategoriesForModule, getLessonsByModule } from "../data/lessons";
 
 const MODULE_TABS = [
@@ -24,15 +25,17 @@ export function Sidebar() {
       role="navigation"
       aria-label="Lesson navigation"
     >
-      <Link
-        to="/"
-        className="block p-6 border-b border-border no-underline hover:bg-bg-tertiary transition-colors"
-      >
-        <h1 className="text-sm font-medium tracking-widest uppercase mb-1 text-accent-warm">
-          SwiftUI for React Devs
-        </h1>
-        <p className="text-xs text-text-secondary">Learn SwiftUI using concepts you already know</p>
-      </Link>
+      <div className="flex items-center justify-between p-6 border-b border-border">
+        <Link to="/" className="block no-underline hover:opacity-80 transition-opacity">
+          <h1 className="text-sm font-medium tracking-widest uppercase mb-1 text-accent-warm">
+            SwiftUI for React Devs
+          </h1>
+          <p className="text-xs text-text-secondary">
+            Learn SwiftUI using concepts you already know
+          </p>
+        </Link>
+        <ThemeToggle />
+      </div>
 
       <div className="flex border-b border-border" role="tablist" aria-label="Module selection">
         {MODULE_TABS.map((tab) => (
