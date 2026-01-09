@@ -44,12 +44,12 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
       <Highlight theme={darkUtilitarianTheme} code={code.trim()} language={prismLang}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className={`${className} m-0 p-4 overflow-auto font-mono text-sm leading-relaxed`}
+            className={`${className} m-0 p-3 sm:p-4 overflow-auto font-mono text-xs sm:text-sm leading-relaxed`}
             style={style}
           >
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line })}>
-                <span className="inline-block w-8 text-right pr-4 text-text-muted select-none text-xs">
+                <span className="inline-block w-6 sm:w-8 text-right pr-2 sm:pr-4 text-text-muted select-none text-[10px] sm:text-xs">
                   {i + 1}
                 </span>
                 {line.map((token, key) => (
