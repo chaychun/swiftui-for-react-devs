@@ -32,7 +32,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       role="navigation"
       aria-label="Lesson navigation"
     >
-      <div className="flex items-center justify-between p-6 border-b border-border">
+      <div className="p-6 border-b border-border">
         <Link to="/" className="block no-underline hover:opacity-80 transition-opacity">
           <h1 className="text-sm font-medium tracking-widest uppercase mb-1 text-accent-warm">
             SwiftUI for React Devs
@@ -41,7 +41,6 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             Learn SwiftUI using concepts you already know
           </p>
         </Link>
-        <ThemeToggle />
       </div>
 
       <div className="flex border-b border-border" role="tablist" aria-label="Module selection">
@@ -91,6 +90,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           ))
         )}
       </nav>
+
+      <div className="p-4 border-t border-border">
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-text-muted">Made by Opus 4.5</span>
+          <ThemeToggle />
+        </div>
+      </div>
     </aside>
   );
 }
