@@ -159,9 +159,9 @@ describe("Sidebar responsive behavior", () => {
       </MemoryRouter>,
     );
 
-    // Find and click a lesson link
-    const firstLessonLink = screen.getAllByRole("link")[1]; // First link after the header link
-    fireEvent.click(firstLessonLink);
+    // Find and click a lesson link by its title
+    const lessonLink = screen.getByRole("link", { name: /types & type inference/i });
+    fireEvent.click(lessonLink);
 
     expect(onClose).toHaveBeenCalled();
   });

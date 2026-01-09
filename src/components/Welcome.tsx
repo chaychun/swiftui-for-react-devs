@@ -1,4 +1,5 @@
 import { ArrowRight, Zap, RefreshCw, Layout } from "lucide-react";
+import { APP_TITLE } from "../constants";
 
 interface WelcomeProps {
   onGetStarted: () => void;
@@ -9,7 +10,7 @@ export function Welcome({ onGetStarted }: WelcomeProps) {
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
       <header className="text-left mb-8 lg:mb-12 pb-6 lg:pb-8 border-b border-border">
         <h1 className="text-xl sm:text-2xl font-normal tracking-tight mb-3 text-text-primary">
-          SwiftUI for React Developers
+          {APP_TITLE}
         </h1>
         <p className="text-[0.9375rem] text-text-secondary mb-8">
           Learn SwiftUI fast by mapping it to React concepts you already know. Start with Swift

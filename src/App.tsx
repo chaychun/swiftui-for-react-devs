@@ -5,6 +5,7 @@ import { lessons } from "./data/lessons";
 import { Sidebar } from "./components/Sidebar";
 import { LessonView } from "./components/LessonView";
 import { Welcome } from "./components/Welcome";
+import { APP_TITLE_SHORT } from "./constants";
 
 function NotFound() {
   return (
@@ -55,7 +56,7 @@ function App() {
           {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <span className="ml-3 text-sm font-medium text-accent-warm truncate">
-          SwiftUI for React Devs
+          {APP_TITLE_SHORT}
         </span>
       </header>
 
