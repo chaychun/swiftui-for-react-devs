@@ -11,6 +11,15 @@
     <title>SwiftUI for React Developers</title>
   </head>
   <body>
+    <script>
+      (function () {
+        var theme = localStorage.getItem("theme");
+        if (!theme) {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
